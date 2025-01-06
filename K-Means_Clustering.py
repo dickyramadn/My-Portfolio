@@ -1,8 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
+# Penerapan K-Means Clustering untuk Pengelompokan Tingkat Kebutuhan Fasilitas bagi Penyandang Disabilitas di Kota Yogyakarta
 
 # import library
 import numpy as np
@@ -18,34 +14,18 @@ from sklearn.metrics import silhouette_score, adjusted_rand_score
 from sklearn.decomposition import PCA
 from sklearn.pipeline import Pipeline
 
-
-# In[2]:
-
-
 # input data
 df = pd.read_csv('E:\PKL\Penyandang Disabilitas di Kota Yogyakarta 2022.csv',sep=",", header=0)
 df.info()
-
-
-# In[3]:
-
 
 # ubah ke data perhitungan
 data = df.drop('Kecamatan Subdistrict', axis=1)
 data.info()
 
-
-# In[4]:
-
-
 # standarisasi
 scaler = StandardScaler()
 scaled_data = scaler.fit_transform(data)
 scaled_data
-
-
-# In[5]:
-
 
 # memilih jumlah cluster yang sesuai menggunakan metode siku
 # model building
@@ -73,10 +53,6 @@ plt.vlines(kl.elbow, ymin=min(sse_list), ymax=max(sse_list), linestyles='dashed'
 # menambahkan legenda pada plot
 plt.legend()
 plt.show()
-
-
-# In[6]:
-
 
 # jumlah cluster
 k = kl.elbow
@@ -124,10 +100,6 @@ df['cluster'] = labels
 # Menampilkan data frame dengan informasi cluster
 df
 
-
-# In[7]:
-
-
 # mendapatkan nilai unik pada labels
 unique_labels = np.unique(labels)
 # membuat scatter plot untuk setiap nilai unik dengan label yang sesuai
@@ -142,10 +114,3 @@ plt.scatter(centroids[:, 0], centroids[:, 1], marker='x',
 plt.title('Hasil Clustering Daerah Penyandang Disabilitas')
 plt.legend()
 plt.show()
-
-
-# In[ ]:
-
-
-
-
