@@ -15,7 +15,7 @@ from sklearn.decomposition import PCA
 from sklearn.pipeline import Pipeline
 
 # input data
-df = pd.read_csv('E:\PKL\Penyandang Disabilitas di Kota Yogyakarta 2022.csv',sep=",", header=0)
+df = pd.read_csv('Penyandang Disabilitas di Kota Yogyakarta 2022.csv',sep=",", header=0)
 df.info()
 
 # ubah ke data perhitungan
